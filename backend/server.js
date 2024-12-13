@@ -16,7 +16,7 @@ const mongoConnectionString = `mongodb://${mongoUsername}:${mongoPassword}@${mon
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://mongo:27017/todos", {
+  await mongoose.connect(""mongodb://momgoUser:mongoPassword@mongo:27017/mydatabase"", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });

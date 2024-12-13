@@ -58,7 +58,7 @@ jobs:
     # Start MongoDB container with environment variables
     - name: Start MongoDB container
       run: |
-        docker run -itd --name mongo-db --network network-backend -e MONGO_INITDB_ROOT_USERNAME=mongoUser -e MONGO_INITDB_ROOT_PASSWORD=mongoPassword -v mongo-db:/data/db -p 27017:27017 mongo:latest
+        docker run -itd --name mongo --network network-backend -e MONGO_INITDB_ROOT_USERNAME=mongoUser -e MONGO_INITDB_ROOT_PASSWORD=mongoPassword -v mongo-db:/data/db -p 27017:27017 mongo:latest
 
     # Add wait time or waiting mechanism for MongoDB to be ready
     - name: Wait for MongoDB to be ready

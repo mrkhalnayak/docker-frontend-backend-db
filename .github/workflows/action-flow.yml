@@ -3,7 +3,7 @@ name: Deploy Application
 on:
   push:
     branches:
-      - main # Replace with the relevant branch
+      - master # Replace with the relevant branch
 
 jobs:
   deploy:

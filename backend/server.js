@@ -4,10 +4,19 @@ const mongoose = require("mongoose");
 const port = 3001;
 const routes = require("./routes");
 
+// Load environment variables
+const mongoUsername = process.env.MONGO_USERNAME;
+const mongoPassword = process.env.MONGO_PASSWORD;
+const mongoHost = "mongo"; // Assuming your MongoDB service is named 'mongo'
+const mongoPort = 27017;
+const mongoDbName = "todos"; // Your database name
+ 
+const mongoConnectionString = `mongodb://${mongoUsername}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDbName}`;
+
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://192.168.2.126:27017/todos", {
+  await mongoose.connect("mongodb://mongo:27017/todos", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });

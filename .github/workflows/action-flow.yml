@@ -24,6 +24,17 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+
+    # Removing the docker utilities like, containers, networks and volumes also. 
+    - name: Removing utilities.
+      run: |
+        docker ps
+        docker kill web-app && docker rm web-app
+        docker kill backend-app && docker rm backend-app
+        docker kill mongo && docker rm mongo
+        docker network rm network-backend
+        docker volume rm mongo-db
+        
     # Build and push frontend Docker image
     - name: Build and push frontend Docker image
       uses: docker/build-push-action@v6

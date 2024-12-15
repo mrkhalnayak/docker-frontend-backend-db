@@ -16,7 +16,7 @@ const mongoConnectionString = `mongodb://${mongoUsername}:${mongoPassword}@${mon
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://momgoUser:mongoPassword@mongo:27017/mydatabase", {
+  await mongoose.connect("mongodb://mongoUser:mongoPassword@mongo:27017/mydatabase?authSource=admin", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });

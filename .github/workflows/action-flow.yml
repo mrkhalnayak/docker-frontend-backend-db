@@ -30,6 +30,7 @@ jobs:
       run: |
         docker ps
         docker kill web-app && docker rm web-app
+        docker kill mongo && docker rm mongo
         docker kill backend-app && docker rm backend-app
         docker kill mongo && docker rm mongo
         docker network rm network-backend

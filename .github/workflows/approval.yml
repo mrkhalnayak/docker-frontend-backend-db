@@ -1,0 +1,26 @@
+name: Approvals 
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: [ self-hoste ]
+
+    steps:
+    - name: checkout 
+      uses: actions/checkout@v2
+
+    - name: create the folder 
+      run: mkdir workflows-1
+
+  copy:
+    runs-on: [ self-hoste ]
+    needs: [ build ]
+    
+    steps:
+    - name: create file
+      run: echo "This file store the basic data" index.txt
